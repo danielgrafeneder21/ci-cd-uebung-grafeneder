@@ -30,6 +30,12 @@ Coverage-Report (für Übung 2 / SonarCloud): `target/site/jacoco/index.html`
 
 ---
 
+## Übung 1
+- Autor: <Daniel Grafeneder>
+- Besonderheit: <Meine bisherige Git-Erfahrung umfasst das Arbeiten mit Branches, das Committen, Pushen und Pullen von Änderungen sowie das Verwalten von Feature-Branches. Ich habe auch Cherry-Picking, Reverts und das Zurücksetzen von Commits praktisch angewendet, um Fehler zu korrigieren und die Historie sauber zu halten.>
+
+---
+
 ## Übung 1 – Aufgaben (24 Punkte)
 
 ### (1) Repository einrichten (4 P.) – **Fork & Clone / Template / ZIP**
