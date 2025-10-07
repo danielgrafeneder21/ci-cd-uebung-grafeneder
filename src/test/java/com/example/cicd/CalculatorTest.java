@@ -33,4 +33,10 @@ class CalculatorTest {
         List<Integer> nums = Arrays.asList(1, 2, 3, null, 4);
         assertEquals(c.sumUp(nums), c.addAll(nums));
     }
+
+    @Test
+    void subtractTrue() {
+        int b = 5;
+        assertEquals(b, Calculator.subtract(10, 5));
+    }
 }
