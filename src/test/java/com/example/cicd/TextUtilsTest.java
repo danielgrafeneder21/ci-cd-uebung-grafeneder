@@ -24,4 +24,9 @@ class TextUtilsTest {
     void isPalindrome_caseInsensitive_expectedTrue() {
         assertTrue(TextUtils.isPalindrome("Anna"));
     }
+
+    @Test
+    void NullInput() {
+        assertFalse(TextUtils.isPalindrome(null));
+    }
 }
