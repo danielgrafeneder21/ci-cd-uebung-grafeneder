@@ -1,3 +1,11 @@
+# CI/CD Übung 02 – Java & GitHub Actions
+
+[![CI Pipeline](https://github.com/danielgrafeneder21/ci-cd-uebung-grafeneder/actions/workflows/maven.yml/badge.svg)](https://github.com/danielgrafeneder21/ci-cd-uebung-grafeneder/actions/workflows/maven.yml)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=danielgrafeneder21_ci-cd-uebung-grafeneder&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=danielgrafeneder21_ci-cd-uebung-grafeneder)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=danielgrafeneder21_ci-cd-uebung-grafeneder&metric=coverage)](https://sonarcloud.io/summary/new_code?id=danielgrafeneder21_ci-cd-uebung-grafeneder)
+
+Dieses Projekt demonstriert eine vollständige CI/CD-Pipeline mit Maven, GitHub Actions, JaCoCo und SonarCloud.
+
 # CI/CD Übung – Java Basisprojekt (Ü1 mit Anleitungen)
 
 Dieses Repository ist der Startpunkt für **Übung 1** und wird in **allen folgenden Übungen** weiterverwendet
