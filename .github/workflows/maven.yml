@@ -26,8 +26,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           mvn -B verify sonar:sonar \
-            -Dsonar.projectKey=<DEIN_PROJECT_KEY> \
-            -Dsonar.organization=<DEINE_ORGANISATION> \
+            -Dsonar.projectKey=github_cicd_uebung_token \
+            -Dsonar.organization=danielgrafeneder21 \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.token=${{ secrets.SONAR_TOKEN }}
 
