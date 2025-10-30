@@ -12,13 +12,17 @@ public class TextUtils {
         return input.equalsIgnoreCase(reversed);
     }
 
-    // Leerer Catch-Block + sehr generische Exception
+    /**
+     * Safely parses a string into an integer.
+     * Returns 0 if the string cannot be parsed.
+     */
     public static int safeParseInt(String s) {
         try {
             return Integer.parseInt(s);
-        } catch (Exception e) { 
-            // absichtlich leer gelassen
+        } catch (NumberFormatException e) {
+            // Intentionally ignore invalid input
+            // Returning 0 as default value
         }
-        return 0; // „Fallback“ – diskutabel
+        return 0;
     }
 }
