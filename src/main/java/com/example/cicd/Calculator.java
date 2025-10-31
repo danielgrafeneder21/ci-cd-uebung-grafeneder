@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Calculator {
 
-    public static int maxOperands = 100;
+    public static final int MAX_OPERANDS = 100;
 
     // Einfacher Addierer
     public int add(int a, int b) {
