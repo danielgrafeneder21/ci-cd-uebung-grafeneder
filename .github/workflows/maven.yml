@@ -87,19 +87,19 @@ jobs:
       - name: Build Docker image
         run: |
           docker build \
-            --tag myapp:${SHORT_SHA} \
-            --tag myapp:latest \
+            --tag ci-cd-uebung:${SHORT_SHA} \
+            --tag ci-cd-uebung:latest \
             .
 
       - name: Save image as TAR
         run: |
-          docker save myapp:${SHORT_SHA} -o myapp_${SHORT_SHA}.tar
+          docker save ci-cd-uebung:${SHORT_SHA} -o ci-cd-uebung_${SHORT_SHA}.tar
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: myapp-image-${{ env.SHORT_SHA }}
-          path: myapp_${{ env.SHORT_SHA }}.tar
+          name: ci-cd-uebung-image-${{ env.SHORT_SHA }}
+          path: ci-cd-uebung_${{ env.SHORT_SHA }}.tar
           retention-days: 14
   trivy-scan:
     name: "Trivy Security Scan"
@@ -116,19 +116,21 @@ jobs:
       - name: Load Docker image artifact
         uses: actions/download-artifact@v4
         with:
-          name: myapp-image-${{ env.SHORT_SHA }}
+          name: ci-cd-uebung-image-${{ env.SHORT_SHA }}
 
       - name: Load Docker image
-        run: docker load -i myapp_${SHORT_SHA}.tar
+        run: docker load -i ci-cd-uebung_${SHORT_SHA}.tar
 
       - name: Install Trivy
-        run: |
-          sudo apt-get update -y
-          sudo apt-get install -y trivy
+        run: docker load -i ci-cd-uebung_${{ env.SHORT_SHA }}.tar
 
       - name: Run Trivy scan
-        run: |
-          trivy image myapp:${SHORT_SHA} --format json --output trivy_report.json
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: image
+          image-ref: ci-cd-uebung:${{ env.SHORT_SHA }}
+          format: 'json'
+          output: 'trivy_report.json'
 
       - name: Upload Trivy report
         uses: actions/upload-artifact@v4
@@ -150,10 +152,10 @@ jobs:
       - name: Load Docker image artifact
         uses: actions/download-artifact@v4
         with:
-          name: myapp-image-${{ env.SHORT_SHA }}
+          name: ci-cd-uebung-image-${{ env.SHORT_SHA }}
 
       - name: Load Docker image
-        run: docker load -i myapp_${SHORT_SHA}.tar
+        run: docker load -i ci-cd-uebung_${SHORT_SHA}.tar
 
       - name: Install Grype
         run: |
@@ -161,7 +163,7 @@ jobs:
 
       - name: Run Grype scan
         run: |
-          grype myapp:${SHORT_SHA} -o json > grype_report.json
+          grype ci-cd-uebung:${SHORT_SHA} -o json > grype_report.json
 
       - name: Upload Grype report
         uses: actions/upload-artifact@v4
