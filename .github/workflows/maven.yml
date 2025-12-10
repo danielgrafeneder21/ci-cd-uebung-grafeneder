@@ -121,9 +121,6 @@ jobs:
       - name: Load Docker image
         run: docker load -i ci-cd-uebung_${SHORT_SHA}.tar
 
-      - name: Install Trivy
-        run: docker load -i ci-cd-uebung_${{ env.SHORT_SHA }}.tar
-
       - name: Run Trivy scan
         uses: aquasecurity/trivy-action@master
         with:
